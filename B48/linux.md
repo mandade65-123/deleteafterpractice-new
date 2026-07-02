@@ -430,4 +430,36 @@ folder/XZ (Best compression): tar -cJvf etc.tar.xz etc
 
 ```
 
+Scheduler - to invoke recurring events on daily or periodic basics is nothing but scheduler. 
 
+periodic - repetative and recurring 
+for i want to compress a folder everyday at 1 am using this command  tar -cJvf etc.tar.xz etc 
+
+crontab (periodic scheduler) 
+
+non periodic - one time 
+i want to compress a folde only once that is today using command  tar -cJvf etc.tar.xz etc
+
+
+on 15 july at 1:30 am i want tar -cJvf etc.tar.xz etc 
+*  *  *  *  * user-name command to be executed
+30 1  15 7  3  tar -cJvf etc.tar.xz etc
+
+ every at 1:30 am i want tar -cJvf etc.tar.xz etc 
+ 30 1  * * *   tar -cJvf etc.tar.xz etc 
+
+ on monday and wednesday at 1:30am i want tar -cJvf etc.tar.xz etc 
+ 30 1 * *  1,3
+
+ , - list   -> 1 , 3
+ -  range
+ / - step
+
+ crontab -l
+ crontab -l -u ubuntu
+   18  crontab -e
+   19  date
+   23  crontab -r 
+   24  crontab -l
+   25  crontab -r -u ubuntu
+ 
