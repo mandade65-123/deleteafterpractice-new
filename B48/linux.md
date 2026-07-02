@@ -424,7 +424,9 @@ Create ArchivesGzip (Fastest): tar -czvf etc.tar.gz etc
 folder/Bzip2 (Balanced): tar -cjvf etc.tar.bz2 etc
 folder/XZ (Best compression): tar -cJvf etc.tar.xz etc
 
-tar 
+ tar -xzvf etc.tar.gz 
+ tar -xjvf etc.tar.bz2 
+ tar -xJvf etc.tar.xz 
 
 ```
 
