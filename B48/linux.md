@@ -462,4 +462,62 @@ on 15 july at 1:30 am i want tar -cJvf etc.tar.xz etc
    23  crontab -r 
    24  crontab -l
    25  crontab -r -u ubuntu
- 
+ ```
+```
+search filter utilities 
+
+grep "nologin" /etc/passwd  - filter out word from mentioned  
+wc /etc/passwd - you extract number of word , number of unique characters and number of sentences.
+cat /etc/passwd - to read file 
+sort /etc/passwd - alphabetically file sort
+sort -r /etc/passwd - in reverse alphabetical order file will be sorted 
+sort -n numbers.txt - will order the whole file output in a numerical order.
+
+uniq filename - unique characters are filtered out
+uniq -c filename - only unique characters and number of counts they are used are filtered out 
+
+cat /etc/passwd | uniq -c  - to execute two process in one command we use "|" = pipe.
+
+   1  locate passwd
+    2  apt install plocate
+    3  clear
+    4  locate passwd
+    5  locate passwd | grep "passwd"
+    6  #locate passwd | grep "passwd"
+    7  locate shadow | grep "etc"
+    8  locate shadow
+    9  locate sudoers
+   10  clear
+   11  find / -name sudoers
+   12  find / -name sudoers -type file
+   13  find / -name sudoers -type f
+   14  find / -name crond -type f
+   15  find / -name cron -type f
+   16  find / -name lib -type d
+   17  find / -name *.sh -type f
+   18  find . -iname passwd
+   19  find / -iname passwd
+   20  find / -size 10M
+   21  find / -size +100M
+   22  find / -size 1G
+   23  find / -size +1G
+   24  find / -size -1G
+   25  find / -size -100M
+   26  find . -mtime 2
+   27  find / -mtime 2
+   28  find / -mtime -2
+   29  find / -mtime +2O
+   30  find / -mtime +2M
+   31  find / -mtime +2m
+   32  find / -mtime -2m
+   33  find / -mmin -2m
+   34  find / -mmin -2
+   35  find / -mmin +20
+   36  find / -mmin 20
+   37  history
+
+
+
+
+
+```
