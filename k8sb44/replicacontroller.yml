@@ -9,8 +9,8 @@ spec:
     selector: 
          app: nginxpodrc
     template:
-        metadata:  #tags , assigning metadata to pod
-            name: nginxpodrc  
+        metadata:  #tags , assigning metadata to pod 
+            name: nginxpodrc
             labels:
                  app: nginxpodrc  
         spec:  #pod specifications.

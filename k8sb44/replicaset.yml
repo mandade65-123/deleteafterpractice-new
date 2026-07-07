@@ -10,8 +10,8 @@ spec:
       matchLabels:
          app: nginxpodrs
     template:
-        metadata:  #tags , assigning metadata to pod
-            name: nginxpodrs  
+        metadata:  #tags , assigning metadata to pod 
+            name: nginxpodrs
             labels:
                  app: nginxpodrs
         spec:  #pod specifications.
