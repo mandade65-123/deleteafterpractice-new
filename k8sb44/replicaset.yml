@@ -15,7 +15,8 @@ spec:
                  app: nginxpodrs
         spec:  #pod specifications.
           containers:
-              - image: nginx:latest #containers images that will be used to create pod
+              - name: nginxpodrs
+                image: nginx:latest #containers images that will be used to create pod
                 ports:
                   - containerPort: 80 #container port 
                     
