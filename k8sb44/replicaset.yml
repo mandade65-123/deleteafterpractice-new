@@ -18,4 +18,4 @@ spec:
               - image: nginx:latest #containers images that will be used to create pod
                 ports:
                   - containerPort: 80 #container port 
-                    name: nginxcont
+                    
