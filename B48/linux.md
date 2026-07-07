@@ -516,8 +516,43 @@ cat /etc/passwd | uniq -c  - to execute two process in one command we use "|" = 
    36  find / -mmin 20
    37  history
 
-
-
-
+```
 
 ```
+process management commands 
+top 
+htop 
+ 1207  ps-elf
+ 1208  ps -elf
+ 1209  top
+ 1210  ps -elf
+ 1211  ps
+ 1212  ps -elf
+ 1213  ps -e
+ 1214  ps aux
+ apt install nginx -y
+    2  systemctl status nginx
+    3  ps -elf | grep "nginx"
+    4  top
+    5  systemctl status nginx
+    6  systemctl stop nginx
+    7  systemctl status nginx
+    8  systemctl start nginx
+    9  systemctl status nginx
+   10  systemctl restart nginx
+   11  systemctl status nginx
+   12  systemctl reload nginx
+   13  systemctl status nginx
+   14  kill -9 2088
+   15  systemctl status nginx
+   16  systemctl start nginx
+   17  systemctl status nginx
+   18  #kill -9 2088
+   19  ps -elf | grep "nginx"
+   20  kill -9 2111
+   21  systemctl status nginx
+   22  ps -elf | grep "nginx"
+   23  systemctl start nginx
+   24  top
+   25  kill --help
+   26  history
