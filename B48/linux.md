@@ -429,7 +429,7 @@ folder/XZ (Best compression): tar -cJvf etc.tar.xz etc
  tar -xJvf etc.tar.xz 
 
 ```
-
+```
 Scheduler - to invoke recurring events on daily or periodic basics is nothing but scheduler. 
 
 periodic - repetative and recurring 
