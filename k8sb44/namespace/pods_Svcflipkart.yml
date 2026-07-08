@@ -2,10 +2,10 @@
 apiVersion:  v1  #required api library calls for the pod creation         
 kind: Pod #unique naming convention 
 metadata:  #tags , assigning metadata to pod
-    name: cipod 
+    name: cipod2 
     namespace: flipkart   
     labels: 
-       app: cipod
+       app: cipod2
 spec:  #pod specifications.
    containers:
       - image: nginx:latest #containers images that will be used to create pod
@@ -19,11 +19,11 @@ spec:  #pod specifications.
 apiVersion: v1 
 kind: Service
 metadata: 
-   name: ciservice
+   name: ciservice2
    namespace:  flipkart
 spec:
   selector:
-     app: cipod
+     app: cipod2
   type: ClusterIP
   ports:
     - port: 80
