@@ -4,6 +4,6 @@ metadata:
    name: ssdb-config
    labels:
        app: ssdb-config
-       data:
-       root_pw2: "123456"
+data:
+    root_pw2: "123456"
 
