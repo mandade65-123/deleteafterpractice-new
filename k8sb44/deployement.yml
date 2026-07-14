@@ -4,7 +4,7 @@ metadata:
      name: mederp
      labels: 
          app: mederp
-spe:
+spec:
    replicas: 4
    selector:
      matchLabels:
@@ -20,7 +20,7 @@ spe:
          app: mederp
      spec:
         containers:
-        - name: http
+        - name: mederp
           image: nginx
           ports:
           - name: http
