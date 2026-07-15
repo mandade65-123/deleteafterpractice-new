@@ -1,23 +1,23 @@
 apiVersion: apps/v1 
 kind: DaemonSet
 metadata:
-       name: cwagent
-       labels:
-        app: cwagent
+    name: cwagent
+    labels:
+       app: cwagent
 spec:
      selector:
-     matchLabels:
-        app: cwagent
+         matchLabels:
+            app: cwagent
      template:
          metadata:
             name: cwagent
             labels:
-                app: cwagent
+              app: cwagent
      spec:
          containers:
-         -name: nginx
-         image: nginx
-         ports:
-         - containerPort: 80
+              - name: nginx
+                image: nginx
+                ports:
+              - containerPort: 80
 
 
