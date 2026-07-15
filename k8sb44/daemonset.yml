@@ -13,8 +13,8 @@ spec:
             name: cwagent
             labels:
               app: cwagent
-     spec:
-         containers:
+         spec:
+            containers:
               - name: nginx
                 image: nginx
                 ports:
