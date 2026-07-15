@@ -6,9 +6,9 @@ name: Anup
 podname: nginx
 
 address: pune ,   
-         pincode: 41972 
-         kothrudh 
-         westned mall 
+         pincode: 41972 |
+         kothrudh |
+         westned mall | 
 
 
 list: ["bannana" , "apple"]
@@ -20,7 +20,7 @@ list:
 adrress: pune 
         pincode: 4110325
 
- #kubectl run nginxci --image=nginx:latest
+#kubectl run nginxci --image=nginx:latest
 #kubectl expose pod nginxci --port=80 --type=ClusterIP 
 
 #kubectl run nginxnp --image=nginx:latest
