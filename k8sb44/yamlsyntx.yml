@@ -19,7 +19,7 @@ list:
 
 adrress: pune 
         pincode: 4110325
-
+        
 #kubectl run nginxci --image=nginx:latest
 #kubectl expose pod nginxci --port=80 --type=ClusterIP 
 
