@@ -24,7 +24,7 @@ spec:
             - name: mederp
               image: nginx
               ports:
-                  - name: nginx
+                  - name: http
                     containerPort: 80
                     protocol: TCP
 
