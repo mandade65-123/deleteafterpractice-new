@@ -14,10 +14,10 @@ spec:
             labels:
                 app: cwagent
      spec:
-        containers:
-        -name: nginx
-        image: nginx
-        ports:
-        - containerPort: 80
+         containers:
+         -name: nginx
+         image: nginx
+         ports:
+         - containerPort: 80
 
 
