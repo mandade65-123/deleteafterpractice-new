@@ -22,7 +22,7 @@ spec:
       spec:
           containers:
             - name: mederp
-              image: nginx
+              image: httpd
               ports:
                   - name: http
                     containerPort: 80
@@ -30,9 +30,9 @@ spec:
               resources:
                   requests: #lower limit
                   cpu: "100m"
-                  memory: "250Mi"
+                  memory: "256Mi"
               limits:   #upper limit
-              cpu: "500"
+              cpu: "500m"
               memory: "512Mi"
 ---
 apiVersion: autoscaling/v2  
@@ -51,10 +51,10 @@ spec:
    metrics:
      - type: resource
        resource:
-       name: cpu
-       target: 
-        type: Utilization
-       averagUtilization: 10
+           name: cpu
+           target: 
+             type: Utilization
+             averagUtilization: 10
 
 
 
