@@ -49,11 +49,11 @@ spec:
    minReplicas: 1
    maxReplicas: 2
    metrics:
-     - type: resources
+     - type: resource
        resource:
        name: cpu
        target: utilization
-       averageutilization: 10
+       averagutilization: 10
 
 
 
