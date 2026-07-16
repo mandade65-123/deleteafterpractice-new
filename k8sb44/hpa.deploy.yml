@@ -32,15 +32,15 @@ spec:
                   cpu: "100m"
                   memory: "256Mi"
               limits:   #upper limit
-              cpu: "500m"
-              memory: "512Mi"
+                cpu: "500m"
+                memory: "512Mi"
 ---
 apiVersion: autoscaling/v2  
 kind: HorizontalPodAutoscaler
 metadata:
      name: my-hpa  
      labels:
-     app: my-hpa
+       app: my-hpa
 spec:
    scaleTargetRef:
       apiVersion: apps/v1
@@ -49,7 +49,7 @@ spec:
    minReplicas: 1
    maxReplicas: 2
    metrics:
-     - type: resource
+     - type: Resource
        resource:
            name: cpu
            target: 
