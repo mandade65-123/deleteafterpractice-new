@@ -52,8 +52,9 @@ spec:
      - type: resource
        resource:
        name: cpu
-       target: utilization
-       averagutilization: 10
+       target: 
+        type: Utilization
+       averagUtilization: 10
 
 
 
