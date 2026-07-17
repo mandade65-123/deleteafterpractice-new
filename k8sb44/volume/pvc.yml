@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaims
+metadata:
+   name: pv-claim
+   labels:
+     apps: pv-claim
+spec:
+   storageClassName: standard
+   volumeMode: Filesystem 
+   accessModes:
+    - ReadwriteOnce
+   resources:
+       requests: 
+         storage: 10Gi
