@@ -5,8 +5,8 @@ metadata:  #tags , assigning metadata to pod
 spec:  #pod specifications.
    volumes:
      - name: mypd
-       persistentVolumeClaims:
-          claimname: pv-claim
+       persistentVolumeClaim:
+          claimName: pv-claim
    containers:
       - image: nginx:latest #containers images that will be used to create pod
         ports:
