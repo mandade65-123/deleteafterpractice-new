@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:   
+    name: cipod
+    namespace: amazon
+    labels:
+       app: cipod
+spec:
+   containers:
+      - image: nginx:latest
+        ports:
+            - containerPort: 80
+        name: nginxcont
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: ciservice
+   namespace: amazon
+spec:
+  selector:
+     app: cipod
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+
+

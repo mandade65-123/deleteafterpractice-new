@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: amazon
+    labels:
+       app: amazon
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: flipkart
+    labels:
+       app: flipkart
+
+              ---
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: meshoo
+    labels:
+       app: meshoo
+              
