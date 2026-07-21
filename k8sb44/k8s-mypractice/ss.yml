@@ -1,5 +1,5 @@
 apiVersion: app/v1
-kind: SatefulSet
+kind: StatefulSet
 metadata:
      name: ssdb
      labels:
