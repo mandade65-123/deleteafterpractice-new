@@ -1,0 +1,29 @@
+key : value
+
+
+name: :nayan"
+
+podname: nginx
+
+address: pune .
+         pincode: 441202 |
+         kothrud |
+         western mall |
+
+
+list : ["banana" , "apple"]
+
+list: 
+     - banana
+     - apple
+
+address: pune
+        pincode: 12345
+
+
+       # kubectl run nginxci --image nginx:latest
+       # kubectl expose pod  nginxci --port=80 --type=ClusterIP
+       # kubectl run nginxnp --image nginx:latest
+       # kubectl expose pod  nginxnp --target-port=80 --port=80 --type=NodePort
+       # kubectl run nginxlb --image nginx:latest
+       # kubectl expose pod  nginxlb --target-port=80 --port=80 --type=LoadBalancer
