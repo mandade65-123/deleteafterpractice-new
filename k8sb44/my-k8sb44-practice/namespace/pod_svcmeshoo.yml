@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:   
-    name: cipod
+    name: cipod3
     namespace: meshoo
     labels:
-       app: cipod
+       app: cipod3
 spec:
    containers:
       - image: nginx:latest
@@ -16,11 +16,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-   name: ciservice
+   name: ciservice3
    namespace: meshoo
 spec:
   selector:
-     app: cipod
+     app: cipod3
   type: ClusterIP
   ports:
     - port: 80
