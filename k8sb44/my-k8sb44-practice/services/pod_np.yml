@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:   
+    name: nppod
+    labels:
+       app: nppod
+spec:
+   containers:
+      - image: nginx:latest
+        ports:
+            - containerPort: 80
+        name: nginxcont
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: npservice
+spec:
+  selector:
+     app: nppod
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+
+
