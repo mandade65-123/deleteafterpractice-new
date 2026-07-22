@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-     name: nginx
+     name: tomcat
      labels: 
-         app: nginx
+         app: tomcat
 spec:
    replicas: 1
    selector:
       matchLabels:
-        app: nginx
+        app: tomcat
    strategy:
          type : RollingUpdate
          rollingUpdate:
@@ -16,15 +16,15 @@ spec:
             maxUnavailable: 1
    template: 
       metadata:
-          name: nginx
+          name: tomcat
           labels: 
-             app: nginx
+             app: tomcat
       spec:
           containers:
-            - name: nginx
-              image: nginx:latest
+            - name: tomcat
+              image: tomcat:latest
               ports:
-                  - name: nginx
+                  - name: tomcat
                     containerPort: 80
                     protocol: TCP
               resources:
@@ -38,14 +38,14 @@ spec:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler 
 metadata:
-     name: nginx
+     name: tomcat
      labels:
-       app: nginx
+       app: tomcat
 spec:
     scaleTargetRef:
        apiVersion: apps/v1
        kind: Deployment
-       name: nginx
+       name: tomcat
     minReplicas: 1
     maxReplicas: 2
     metrics: 
