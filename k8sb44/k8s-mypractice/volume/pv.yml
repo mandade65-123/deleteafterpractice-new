@@ -7,11 +7,11 @@ metadata:
 spec:
     storageClassName: standard
     volumeMode: filesystem
-    accessMode:
+    accessModes:
       - ReadWriteOnce
     capacity:
       storage: 10Gi
-    persistentvolumeclaimPolicy: Recycle
+    persistentVolumeReclaimPolicy: Recycle
     hostPath:
       path: "/mnt/data"   
           
