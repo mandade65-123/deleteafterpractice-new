@@ -1,4 +1,4 @@
-apiVesrsion:  apps/v1
+apiVersion:  apps/v1
 kind: Daemonset
 metadata:
     name: cwgagent
