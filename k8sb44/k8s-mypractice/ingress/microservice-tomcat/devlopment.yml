@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+     name: tomcat
+     labels: 
+         app: tomcat
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+        app: tomcat
+   strategy:
+         type : RollingUpdate
+         rollingUpdate:
+            maxSurge: 1
+            maxUnavailable: 1
+   template: 
+      metadata:
+          name: tomcat
+          labels: 
+             app: tomcat
+      spec:
+          containers:
+            - name: tomcat
+              image: tomcat:latest
+              ports:
+                  - name: tomcat
+                    containerPort: 80
+                    protocol: TCP
+              resources:
+                   requests:
+                     cpu: "100m"
+                     memory: "256Mi"
+                   limits:
+                     cpu: "500m"
+                     memory: "512Mi"
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler 
+metadata:
+     name: tomcat
+     labels:
+       app: tomcat
+spec:
+    scaleTargetRef:
+       apiVersion: apps/v1
+       kind: Deployment
+       name: tomcat
+    minReplicas: 1
+    maxReplicas: 2
+    metrics: 
+     -  type: Resource
+        resource:
+           name: cpu
+           target:
+             type: Utilization
+             averageUtilization: 10
+
+
+
+
+
+
+
+
+            
