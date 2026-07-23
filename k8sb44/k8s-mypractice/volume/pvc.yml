@@ -7,7 +7,7 @@ metadata:
 spec:
     storageClassName: standard
     volumeMode: Filesystem
-    accessMode:
+    accessModes:
       - ReadWriteOnce
     resources:
         requests:
