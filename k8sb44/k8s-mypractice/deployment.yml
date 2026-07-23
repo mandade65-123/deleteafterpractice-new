@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
       name: mederp
       labels:
-      app: mederp
+         app: mederp
 spec:
     replicas: 4
     selector:
