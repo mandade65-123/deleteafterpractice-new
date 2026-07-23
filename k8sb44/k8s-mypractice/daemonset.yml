@@ -3,19 +3,19 @@ kind: DaemonSet
 metadata:
     name: cwgagent
     labels:
-      app: cwgagent
+        app: cwgagent
 spec:
     selector:
         matchLabels:
             app: cwgagent
     template:
         metadata:
-        name: cwgagent
-    labels:
-      app: cwgagent
-    spec:
-        containers:
-          - name: nginx
-            image: amazon/cloudwatch-agent
-            ports:
-            - containerPort: 80
+          name: cwgagent
+          labels:
+            app: cwgagent
+        spec:
+            containers:
+              - name: nginx
+                image: amazon/cloudwatch-agent
+                ports:
+                - containerPort: 80
