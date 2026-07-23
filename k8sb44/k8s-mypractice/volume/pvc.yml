@@ -6,11 +6,11 @@ metadata:
         app: pv-claim
 spec:
     storageClassName: standard
-    volumeMode: filesystem
+    volumeMode: Filesystem
     accessMode:
       - ReadWriteOnce
     resources:
         requests:
           storage: 10Gi
-          
+
 
