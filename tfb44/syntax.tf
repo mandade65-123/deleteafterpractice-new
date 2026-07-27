@@ -12,14 +12,11 @@ provider "aws" {
 }
 
 resource "cloudprovider_resource" "unique_blockname" {
-     # To set an argument, you must use an "=" sign:
-     instance_type = "t2.micro" 
+     key = value 
+     arguements 
 }
 
-
-
-resource "aws_instance" "practice_server" {
- {
+resource "aws_instance"  "webserver" {
      ami = 
      instance_type =
      vpc_security_group_ids = 
