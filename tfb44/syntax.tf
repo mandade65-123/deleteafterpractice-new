@@ -16,7 +16,7 @@ resource "cloudprovider_resource" "unique_blockname" {
      arguements 
 }
 
-resource "aws_instance"  "webserver" {
+resource "aws_instance"  "webserver1" {
      ami = 
      instance_type =
      vpc_security_group_ids = 
