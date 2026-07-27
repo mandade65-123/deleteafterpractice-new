@@ -12,8 +12,8 @@ resource "aws_instance"  "webserver" {
      key_name = "key"
      tags = {
         purpose = "webserver"
-     }
-     count = 2
-
-
+    }
+    count = 2 
 }
+
+
