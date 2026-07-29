@@ -25,7 +25,7 @@ resource "aws_security_group"  "webserver_sg" {
      cidr_blocks = ["0.0.0.0/0"]
 }
 }
-     igress {
+     ingress {
      from_port = 0
      to_port   = 65535
      protocol  = "-1"
