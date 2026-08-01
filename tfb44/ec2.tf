@@ -15,7 +15,7 @@ resource "aws_instance"  "webserver" {
      count= 2
 }
 
-resource "aws_security_group"  "webserver" {
+resource "aws_security_group"  "webserver_sg" {
      name = "tf-sg"
      ingress {
        from_port = 80
