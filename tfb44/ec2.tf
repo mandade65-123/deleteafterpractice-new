@@ -6,7 +6,7 @@ provider "aws" {
 resource "aws_instance"  "webserver" {
      ami = var.amiid
      instance_type =  var.insttype
-     vpc_security_group_ids = [ var.sg , aws_security_group.webserver_sg.id , data.ws_security_group.sgdata.id ]
+     vpc_security_group_ids = [ var.sg , aws_security_group.webserver_sg.id , data.aws_security_group.sgdata.id ]
      key_name = var.kp
      tags ={
         purpose = "webserver"
