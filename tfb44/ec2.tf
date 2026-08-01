@@ -14,35 +14,36 @@ resource "aws_instance"  "webserver" {
      }
      count= 2
      user_data = <<-EOF
-                  #!/bin/bash
-                  sudo yum install nginx -y
-                  sudo systemctl start nginx
+                 #!/bin/bash
+                 sudo yum install nginx -y
+                 sudo systemctl start nginx
+                EOF
 
-
-
-
-
-              EOF
 }
 
-resource "aws_security_group"  "webserver_sg" {
-     name = "tf-sg"
-     ingress {
-       from_port = 80
-       to_port   = 80
-       protocol  = "TCP"
-       cidr_blocks = ["0.0.0.0/0"]
-     }
-     ingress {
-       from_port = 0
-       to_port   = 0
-       protocol  = "-1"
-       cidr_blocks = ["0.0.0.0/0"]
-     }
-     egress {
-       from_port = 0
-       to_port   = 0
-       protocol  = "-1"
-       cidr_blocks = ["0.0.0.0/0"]
+
+resource "aws_security_group" "webserver_sg" {
+    name = "tf-sg"
+    ingress {
+      from_port = 80
+      to_port = 80
+      protocol = "TCP"
+      cidr_blocks  = ["0.0.0.0/0"]
+    }
+
+    ingress {
+      from_port = 0
+      to_port = 0
+      protocol = "-1"
+      cidr_blocks  = ["0.0.0.0/0"]
+    }
+
+
+    egress {
+      from_port = 0
+      to_port = 0
+      protocol = "-1"
+      cidr_blocks  = ["0.0.0.0/0"]
+
      }
 }
