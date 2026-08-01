@@ -13,6 +13,16 @@ resource "aws_instance"  "webserver" {
         purpose = "webserver"
      }
      count= 2
+     user_data = <<-EOF
+                  #!/bin/bash
+                  sudo yum install nginx -yum
+                  sudo systemctl start nginx
+
+
+
+
+
+              EOF
 }
 
 resource "aws_security_group"  "webserver_sg" {
@@ -25,8 +35,8 @@ resource "aws_security_group"  "webserver_sg" {
      }
      ingress {
        from_port = 0
-       to_port   = 0
-       protocol  = 65535
+       to_port   = 65535
+       protocol  = "-1"
        cidr_blocks = ["0.0.0.0/0"]
      }
      egress {
