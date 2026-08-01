@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_instance"  "webserver" {
      ami = "ami-00d2dbb426772b03a"
      instance_type = "t3.micro"
-     vpc_security_group_ids = ["sg-05e7e2c67090bfab2" , aws_security_group.webserver_sg.vpc_security_group_id]
+     vpc_security_group_ids = ["sg-05e7e2c67090bfab2" , aws_security_group.webserver_sg.id]
      key_name = "key"
      tags ={
         purpose = "webserver"
