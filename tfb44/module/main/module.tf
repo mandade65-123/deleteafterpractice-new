@@ -2,7 +2,7 @@
 
 module "ec2" {
     source = "/root/deleteafterpractice-new/tfb44/module/resource/ec2"
-    amiid =  "ami-00d2dbb426772b03a"
+    amiid =  "ami-035827357e3c7e810"
     insttype = "t3.micro"
     sg = "sg-05e7e2c67090bfab2"
     kp = "key"
