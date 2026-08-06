@@ -1,5 +1,5 @@
 variable "amiid" {
-    default =  "ami-035827357e3c7e810"
+    default =  "ami-00d2dbb426772b03a"
 }
 variable "insttype" {
     default = "t3.micro"
