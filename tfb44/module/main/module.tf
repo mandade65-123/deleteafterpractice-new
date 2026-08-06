@@ -4,7 +4,7 @@ module "ec2" {
     source = "/root/deleteafterpractice-new/tfb44/module/resource/ec2"
     amiid =  "ami-035827357e3c7e810"
     insttype = "t3.micro"
-    sg = "sg-021a49a829d97d208"
+    sg = "sg-0f761cbf638b83377"
     kp = "key"
     apiterm = false
    ws_subnet = module.vpc.subnet_id
