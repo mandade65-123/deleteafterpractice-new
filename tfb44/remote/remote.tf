@@ -5,12 +5,11 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket                  = "cbb44"
-    key                     = "terraform.tfstate"
-    region                  = "ap-south-1"
-    profile                 = "configs"
-    shared_credentials_file = "/home/nayan123/.aws/credentials"
-    use_lockfile            = true # Replaces deprecated dynamodb_table
+    bucket       = "cbb44"
+    key          = "terraform.tfstate"
+    region       = "ap-south-1"
+    profile      = "configs"
+    use_lockfile = true
   }
 }
 
