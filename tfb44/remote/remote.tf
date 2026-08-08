@@ -9,7 +9,7 @@ terraform {
     key          = "terraform.tfstate"
     region       = "ap-south-1"
     profile      = "configs"
-    use_lockfile = true
+    use_lockfile = true # Replaces deprecated dynamodb_table configurations
   }
 }
 
