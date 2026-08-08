@@ -3,15 +3,14 @@ provider "aws" {
   profile = "configs"
 }
 
-# Partitionkey = LockID
 terraform {
   backend "s3" {
     bucket                  = "cbb44"
     key                     = "terraform.tfstate"
-    dynamodb_table          = "cbb44"
     region                  = "ap-south-1"
     profile                 = "configs"
     shared_credentials_file = "/home/nayan123/.aws/credentials"
+    use_lockfile            = true # Replaces deprecated dynamodb_table
   }
 }
 
