@@ -16,7 +16,7 @@ data "aws_subnets" "default" {
 }
 
 # Security Group for ALB and EC2
-resource "aws_security_group" "web_sg" {
+resource "aws_security_group" "web_sg-1" {
   name   = "web-sg"
   vpc_id = data.aws_vpc.default.id
 
@@ -45,7 +45,7 @@ resource "aws_lb" "app_lb" {
   subnets            = data.aws_subnets.default.ids
 }
 
-resource "aws_lb_target_group" "tg" {
+resource "aws_lb_target_group" "tg-1" {
   name     = "simple-tg"
   port     = 80
   protocol = "HTTP"
