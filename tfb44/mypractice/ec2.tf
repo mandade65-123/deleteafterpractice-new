@@ -14,6 +14,12 @@ resource "aws_instance"  "webserver" {
          purpose = "webserver"   
      }
      count = 2
+     disable_api_termination = var.apiterm
+     user_data = <<-EOF
+                 #!/bin/bash
+                 sudo yum install nginx -y
+                 sudo systemctl start nginx
+                EOF
 }
 
 resource "aws_security_group" "webserver_sg" {
