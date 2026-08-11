@@ -21,7 +21,7 @@ resource "aws_instance"  "webserver" {
 }
 
 resource "aws_security_group" "webserver_sg" {
-name = "tf-sg"
+name = "tf-sg-new"
     ingress {
       from_port = 80
       to_port = 80
