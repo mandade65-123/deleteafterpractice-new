@@ -8,13 +8,12 @@ provider "aws" {
 resource "aws_instance"  "webserver" {
      ami = "ami-0bdc7d025135d7b49"
      instance_type = "t3.micro"
-     vpc_security_group_ids = ["sg-0eae0d103615165a6" , "aws_security_group.webserver_sg.id"]
+     vpc_security_group_ids = ["sg-0eae0d103615165a6" , aws_security_group.webserver_sg.id]
      key_name = "key"
      tags = {
          purpose = "webserver"   
      }
      count = 2
-     disable_api_termination = var.apiterm
      user_data = <<-EOF
                  #!/bin/bash
                  sudo yum install nginx -y
