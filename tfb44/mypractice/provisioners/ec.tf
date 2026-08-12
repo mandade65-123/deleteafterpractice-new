@@ -31,7 +31,7 @@ provisioner "local-exec" {
 
       "sudo yum install httpd -y",
       "sudo systemctl start httpd",
-      "sudo yum update all",
+      "sudo yum update -y",
       "sudo yum upgrade",
       "sudo systemctl enable httpd"
     ]
