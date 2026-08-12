@@ -3,7 +3,7 @@ variable "amiid" {
 }
 
 variable "insttype" {
-    default = "t3.small"
+    default = "t3.micro"
 }
 
 variable "sg" {
