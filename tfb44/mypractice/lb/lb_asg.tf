@@ -1,6 +1,6 @@
 provider "aws" {
-    region = "us-east-1"
-   profile = "configs"
+  region  = "us-east-1"
+  profile = "configs"
 }
 
 # Get default VPC and subnets
@@ -16,7 +16,7 @@ data "aws_subnets" "default" {
 }
 
 # Security Group for ALB and EC2
-resource "aws_security_group" "web_sg-1" {
+resource "aws_security_group" "web_sg" {
   name   = "web-sg"
   vpc_id = data.aws_vpc.default.id
 
@@ -45,7 +45,7 @@ resource "aws_lb" "app_lb" {
   subnets            = data.aws_subnets.default.ids
 }
 
-resource "aws_lb_target_group" "tg-1" {
+resource "aws_lb_target_group" "tg" {
   name     = "simple-tg"
   port     = 80
   protocol = "HTTP"
@@ -66,7 +66,7 @@ resource "aws_lb_listener" "listener" {
 # Launch Template
 resource "aws_launch_template" "example" {
   name_prefix   = "simple-template-"
-  image_id      = "ami-0bdc7d025135d7b49" # Amazon Linux 2 AMI (update as needed)
+  image_id      = "ami-0bdc7d025135d7b49" # Verify this is valid in us-east-1
   instance_type = "t3.micro"
 
   network_interfaces {
@@ -81,18 +81,19 @@ resource "aws_launch_template" "example" {
               systemctl start httpd
               systemctl enable httpd
               echo "Hello from $(hostname)" > /var/www/html/index.html
-            EOF
+              EOF
   )
 }
 
 # Auto Scaling Group
 resource "aws_autoscaling_group" "asg" {
-  desired_capacity     = 2
-  max_size             = 3
-  min_size             = 1
-  vpc_zone_identifier  = data.aws_subnets.default.ids
-  target_group_arns    = [aws_lb_target_group.tg.arn]
-  health_check_type    = "ELB"
+  desired_capacity    = 2
+  max_size            = 3
+  min_size            = 1
+  vpc_zone_identifier = data.aws_subnets.default.ids
+  target_group_arns   = [aws_lb_target_group.tg.arn]
+
+  health_check_type         = "ELB"
   health_check_grace_period = 120
 
   launch_template {
