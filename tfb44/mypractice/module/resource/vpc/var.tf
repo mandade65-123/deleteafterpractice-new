@@ -1,9 +1,7 @@
-variable "this_cidr" {
+variable "this_cidr"{
+    
 }
 
-variable "this_subcidr" {
-}
-
-variable "this_az" {
+variable "this_subcidr"{
     
 }
