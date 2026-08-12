@@ -10,12 +10,13 @@ resource "aws_instance"  "webserver" {
     vpc_security_group_ids =  [ var.sg]
     key_name = var.kp
 }
+
 provisioner "file" {
     source      = "sample.txt"
     destination = "/home/ec2-user/aws/"
   }
 
-provisioner "local-exec" {
+  provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt" 
 }
 
