@@ -13,7 +13,7 @@ resource "aws_instance"  "webserver" {
 
 provisioner "file" {
     source      = "sample.txt"
-    destination = "/home/ec2-user/aws/"
+    destination = "/home/ec2-user/aws/sample.txt"
   }
 
   provisioner "local-exec" {
