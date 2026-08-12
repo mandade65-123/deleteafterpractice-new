@@ -11,7 +11,7 @@ module "ec2" {
 }
 
 module "vpc" {
-    source = "/root/deleteafterpractice-new/tfb44/module/resource/vpc""
+    source = "/root/deleteafterpractice-new/tfb44/module/resource/vpc"
     this_cidr =  "10.0.0.0/16" 
     this_subcidr = "10.0.0.0/24"
     this_az = "us-east-1a"
