@@ -1,4 +1,4 @@
-amiid = "ami-004f790b835b26145"
+amiid = "ami-0b6d9d3d33ba97d99"
 insttype = "t3.small"
-sg = "sg-0eae0d103615165a6"
+sg = "sg-00cffae44a7e1dc73"
 kp = "key"
