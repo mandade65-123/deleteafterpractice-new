@@ -7,12 +7,10 @@ provider "aws" {
 resource "aws_instance"  "webserver" {
     ami = var.amiid
     instance_type = var.insttype
-    vpc_security_group_ids =  [ var.sg , aws_security_group.webserver_sg.id ]
+    vpc_security_group_ids =  [ var.sg ]
     key_name = var.kp
     count = 2  #identicalloops
 }
-
-
 resource "aws_security_group" "webserver_sg" {
     depends_on = [aws_instance.webserver]    
     name = "tf-sg2"
@@ -56,7 +54,7 @@ resource "aws_instance"  "webservertwo" {
 
 
 variable "imageid" {
-   default = ["ami-0bdc7d025135d7b49" , "ami-0b6d9d3d33ba97d99" , "ami-0ed0165f19a049904"]
+   default = ["ami-07a5b367e8dc8bd92" , "ami-0b6d9d3d33ba97d99" , "ami-013acec81a2c8ff79"]
 }
 
 output "ip" {
