@@ -14,8 +14,9 @@ resource "aws_instance"  "webserver" {
 
 
 resource "aws_security_group" "webserver_sg" {
-  depends_on = [aws_instance.webserver]
+  
     name = "tf-sg2"
+    depends_on = [aws_instance.webserver]
     ingress {
       from_port = 80
       to_port = 80
