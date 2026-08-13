@@ -14,7 +14,7 @@ resource "aws_instance"  "webserver" {
 
 
 resource "aws_security_group" "webserver_sg" {
-    depends_on = [aws_instance.webserver]    
+  depends_on = aws_instance.webserver
     name = "tf-sg2"
     ingress {
       from_port = 80
@@ -37,9 +37,9 @@ resource "aws_security_group" "webserver_sg" {
       protocol = "-1"
       cidr_blocks  = ["0.0.0.0/0"]
 
-    }
-
+     }
 }
+
 
 
 
