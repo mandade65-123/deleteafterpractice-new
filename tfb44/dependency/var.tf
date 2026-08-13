@@ -11,6 +11,6 @@ variable "sg" {
 }
 
 variable "kp" {
-    default = "kp"
+    default = "key"
 
 }
