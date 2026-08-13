@@ -1,19 +1,27 @@
 provider "aws" {
-  region = "ap-south-1" # Change to your desired region
+  region  = "ap-south-1" 
   profile = "configs"
 }
 
+# 1. Fetch the default VPC ID
 data "aws_vpc" "default" {
   default = true
 }
 
-data "aws_subnet" "default_subnet" {
+# 2. Automatically discover all default subnets across multiple AZs
+data "aws_subnets" "default_subnets" {
   filter {
-    name   = "availability-zone"
-    values = ["ap-south-1c"]  #change az
+    name   = "vpc-id"
+    values = [data.aws_vpc.default.id]
+  }
+
+  filter {
+    name   = "default-for-az"
+    values = ["true"]
   }
 }
 
+# 3. EKS Cluster IAM Role
 resource "aws_iam_role" "eks_role" {
   name = "eks-cluster-role"
 
@@ -34,17 +42,20 @@ resource "aws_iam_role_policy_attachment" "eks_policy_attachment" {
   role       = aws_iam_role.eks_role.name
 }
 
+# 4. EKS Cluster Configuration
 resource "aws_eks_cluster" "eks" {
   name     = "my-eks-cluster"
   role_arn = aws_iam_role.eks_role.arn
 
   vpc_config {
-    subnet_ids = [data.aws_subnet.default_subnet.id]
+    # Uses the list of all discovered subnet IDs
+    subnet_ids = data.aws_subnets.default_subnets.ids
   }
 
   depends_on = [aws_iam_role_policy_attachment.eks_policy_attachment]
 }
 
+# 5. EKS Worker Nodes IAM Role
 resource "aws_iam_role" "eks_node_role" {
   name = "eks-node-group-role"
 
@@ -75,19 +86,31 @@ resource "aws_iam_role_policy_attachment" "eks_ec2_container_registry_policy" {
   role       = aws_iam_role.eks_node_role.name
 }
 
+# 6. EKS Managed Node Group Configuration
 resource "aws_eks_node_group" "eks_nodes" {
   cluster_name    = aws_eks_cluster.eks.name
   node_group_name = "eks-node-group"
   node_role_arn   = aws_iam_role.eks_node_role.arn
-  subnet_ids      = [data.aws_subnet.default_subnet.id]
+  
+  # Uses the list of all discovered subnet IDs
+  subnet_ids      = data.aws_subnets.default_subnets.ids
   instance_types  = ["t3.medium"]
+
   scaling_config {
     desired_size = 2
     max_size     = 3
     min_size     = 1
   }
+
+  # Keeps nodes from building before permissions attach
+  depends_on = [
+    aws_iam_role_policy_attachment.eks_worker_node_policy,
+    aws_iam_role_policy_attachment.eks_cni_policy,
+    aws_iam_role_policy_attachment.eks_ec2_container_registry_policy
+  ]
 }
 
+# 7. Outputs
 output "cluster_endpoint" {
   value = aws_eks_cluster.eks.endpoint
 }
