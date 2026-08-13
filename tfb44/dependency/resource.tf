@@ -7,36 +7,11 @@ provider "aws" {
 resource "aws_instance"  "webserver" {
     ami = var.amiid
     instance_type = var.insttype
-    vpc_security_group_ids =  [ var.sg ,aws_security_group.webserver_sg.id ]
+    vpc_security_group_ids =  [ var.sg ]
     key_name = var.kp
     count = 2  #identicalloops
 }
-resource "aws_security_group" "webserver_sg" {
-  depends_on = [aws_instance.webserver]
-    name = "tf-sg-new"
-    ingress {
-      from_port = 80
-      to_port = 80
-      protocol = "TCP"
-      cidr_blocks  = ["0.0.0.0/0"]
-    }
 
-    ingress {
-      from_port = 0
-      to_port = 0
-      protocol = "-1"
-      cidr_blocks  = ["0.0.0.0/0"]
-    }
-
-
-    egress {
-      from_port = 0
-      to_port = 0
-      protocol = "-1"
-      cidr_blocks  = ["0.0.0.0/0"]
-
-     }
-}
 
 
 resource "aws_instance"  "webservertwo" {
