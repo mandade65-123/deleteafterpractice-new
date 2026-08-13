@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
   profile = "configs"
 } 
 
@@ -56,7 +56,7 @@ resource "aws_instance"  "webservertwo" {
 
 
 variable "imageid" {
-   default = ["ami-0bdc7d025135d7b49" , "ami-0b6d9d3d33ba97d99" , "ami-0ed0165f19a049904"]
+   default = ["ami-0d15e9052c94acb75" , "ami-01a00762f46d584a1" , "ami-0b0d9b0f4dc6d00ca"]
 }
 
 output "ip" {
