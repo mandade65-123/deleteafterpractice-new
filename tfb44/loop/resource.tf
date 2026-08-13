@@ -13,35 +13,6 @@ resource "aws_instance"  "webserver" {
 }
 
 
-resource "aws_security_group" "webserver_sg" {
-       
-    name = "tf-sg2"
-    ingress {
-      from_port = 80
-      to_port = 80
-      protocol = "TCP"
-      cidr_blocks  = ["0.0.0.0/0"]
-    }
-
-    ingress {
-      from_port = 0
-      to_port = 0
-      protocol = "-1"
-      cidr_blocks  = ["0.0.0.0/0"]
-    }
-
-
-    egress {
-      from_port = 0
-      to_port = 0
-      protocol = "-1"
-      cidr_blocks  = ["0.0.0.0/0"]
-
-    }
-
-}
-
-
 
 resource "aws_instance"  "webservertwo" {
     for_each = toset(var.imageid)    #unidenticalloops
