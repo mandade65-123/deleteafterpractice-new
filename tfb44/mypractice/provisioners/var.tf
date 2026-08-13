@@ -10,7 +10,6 @@ variable "sg" {
    default = "sg-0eae0d103615165a6"
 }
 
-variable "kp" {
+variable "key" {
     default = "key"
-
 }

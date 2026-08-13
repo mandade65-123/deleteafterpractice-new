@@ -6,11 +6,11 @@ resource "aws_instance"  "webserver" {
      ami = var.amiid
      instance_type =  var.insttype
      vpc_security_group_ids = [ var.sg ]
-     key_name = var.kp
+     key_name = var.key
      
 provisioner "file" {
     source      = "sample.txt"
-    destination = "/home/ec2-user/aws/"
+    destination = "/home/ec2-user/aws/sample.txt"
   }
 
 provisioner "local-exec" {
@@ -26,12 +26,11 @@ provisioner "local-exec" {
 
  provisioner "remote-exec" {
     inline = [
-
+      "sudo yum update -y",
       "sudo yum install httpd -y",
       "sudo systemctl start httpd",
-      "sudo yum update all",
-      "sudo yum upgrade",
       "sudo systemctl enable httpd"
+      
     ]
   }
 }
