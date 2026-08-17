@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_instance" "webserver" {
     ami = var.amiid
     instance_type = var.instype
-    vpc_security_group_ids = [var.sg,aws_security_group.webserver_sg1.id]
+    vpc_security_group_ids = [var.sg,aws_security_group.webserver_sg1.id,data.aws_security_group.sgdata.id]
     key_name = var.kp
     tags = {
         purpose = "webserver"
@@ -46,4 +46,16 @@ name = "tf-sg-n"
       cidr_blocks  = ["0.0.0.0/0"]
 
      }
+}
+
+data "aws_security_group" "sgdata"{
+    name = "launch-wizard-4"
+}
+
+output "instaneip" {
+    value = aws_instance.webserver.public_ip
+}
+
+output "pubdns" {
+    value = aws_instance.webserver.public_dns
 }
