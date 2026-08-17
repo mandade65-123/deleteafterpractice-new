@@ -1,5 +1,5 @@
 module "ec2" {
-    source = "/root/deleteafterpractice-new/tfb44/module/resource/ec2"
+    source = "/root/deleteafterpractice-new/tfb44/mypractice/practice/lb/module/resource/ec2"
     amiid =  "ami-0bdc7d025135d7b49"
     insttype = "t3.micro"
     sg = "sg-0dce926e31d5c67c1"
@@ -9,7 +9,7 @@ module "ec2" {
 }
 
 module "vpc" {
-    source = "/root/deleteafterpractice-new/tfb44/module/resource/vpc"
+   source = "/root/deleteafterpractice-new/tfb44/mypractice/practice/lb/module/resource/vpc"
     this_cidr = "10.0.0.0/16"
     this_subcidr = "10.0.0.0/24"
 }
