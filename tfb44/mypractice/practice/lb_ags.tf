@@ -17,8 +17,9 @@ data "aws_subnets" "default" {
 
 # Security Group for ALB and EC2
 resource "aws_security_group" "web_sg" {
-  name   = "web-sg"
+  name   = "web-sg-new"
   vpc_id = data.aws_vpc.default.id
+
 
   ingress {
     description = "Allow HTTP"
@@ -45,8 +46,8 @@ resource "aws_lb" "app_lb" {
   subnets            = data.aws_subnets.default.ids
 }
 
-resource "aws_lb_target_group" "tg" {
-  name     = "simple-tg"
+resource "aws_lb_target_group" "tg1" {
+  name     = "simple-tg-v2"
   port     = 80
   protocol = "HTTP"
   vpc_id   = data.aws_vpc.default.id
@@ -59,7 +60,7 @@ resource "aws_lb_listener" "listener" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.tg.arn
+    target_group_arn = aws_lb_target_group.tg1.arn
   }
 }
 
@@ -91,7 +92,7 @@ resource "aws_autoscaling_group" "asg" {
   max_size            = 3
   min_size            = 1
   vpc_zone_identifier = data.aws_subnets.default.ids
-  target_group_arns   = [aws_lb_target_group.tg.arn]
+  target_group_arns   = [aws_lb_target_group.tg1.arn]
 
   health_check_type         = "ELB"
   health_check_grace_period = 120
