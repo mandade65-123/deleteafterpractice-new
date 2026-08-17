@@ -2,7 +2,7 @@ module "ec2" {
     source = "/root/deleteafterpractice-new/tfb44/mypractice/practice/lb/module/resource/ec2"
     amiid =  "ami-0bdc7d025135d7b49"
     insttype = "t3.micro"
-    sg = "sg-0dce926e31d5c67c1"
+    sg = "sg-0eae0d103615165a6"
     kp = "key"
     apiterm = false
    ws_subnet = module.vpc.subnet_id
