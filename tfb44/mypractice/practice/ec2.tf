@@ -9,7 +9,7 @@ resource "aws_instance" "webserver" {
     ami = "ami-0bdc7d025135d7b49"
     instance_type = "t3.micro"
     vpc_security_group_ids = ["sg-0dce926e31d5c67c1"]
-    key = "kp"
+    key = "key"
     tags = {
         purpose = "webserver"
     }
