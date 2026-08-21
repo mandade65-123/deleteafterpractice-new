@@ -6,6 +6,7 @@ module "ec2" {
     insttype = "t3.micro"
     sg = "sg-0eae0d103615165a6"
     kp = "key"
+    instno = 1
     apiterm = false
     ws_subnet = module.vpc.subnet_id
 }
