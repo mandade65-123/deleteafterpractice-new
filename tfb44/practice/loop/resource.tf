@@ -27,7 +27,7 @@ resource "aws_instance"  "webservertwo" {
 
 
 variable "imageid" {
-   default = ["ami-0332d564d76dbd8d6 " , "ami-0b6d9d3d33ba97d99" , "ami-05b8af58f7410b671"]
+   default = ["ami-0332d564d76dbd8d6" , "ami-0b6d9d3d33ba97d99" , "ami-05b8af58f7410b671"]
 }
 
 output "ip" {
