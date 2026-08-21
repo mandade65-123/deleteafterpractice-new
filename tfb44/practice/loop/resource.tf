@@ -10,7 +10,7 @@ resource "aws_instance" "webserver" {
     key_name = var.kp
     count =2
 }
-resource "aws_instance" "webserver" {
+resource "aws_instance" "webservertwo" {
     for_each = toset(var.imageid)
     ami = each.value
     instance_type = var.insttype
