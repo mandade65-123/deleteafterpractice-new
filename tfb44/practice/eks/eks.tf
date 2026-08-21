@@ -34,7 +34,7 @@ locals {
   ]
 }
 
-# NEW: Generates a unique tracking suffix to avoid IAM 409 errors
+# Generates a unique tracking suffix to avoid IAM 409 errors
 resource "random_string" "suffix" {
   length  = 6
   special = false
@@ -49,7 +49,7 @@ resource "aws_iam_role" "eks_role" {
     Statement = [{ 
       Action    = "sts:AssumeRole" 
       Effect    = "Allow" 
-      Principal = { Service = "://amazonaws.com" } 
+      Principal = { Service = "eks.amazonaws.com" } # Fixed principal string
     }] 
   }) 
 }
@@ -65,7 +65,6 @@ resource "aws_eks_cluster" "eks" {
   role_arn = aws_iam_role.eks_role.arn 
   
   vpc_config { 
-    # Use the cleaned subnet group to keep the control plane creation safe
     subnet_ids = local.supported_eks_subnets 
   } 
   
@@ -80,7 +79,7 @@ resource "aws_iam_role" "eks_node_role" {
     Statement = [{ 
       Action    = "sts:AssumeRole" 
       Effect    = "Allow" 
-      Principal = { Service = "://amazonaws.com" } 
+      Principal = { Service = "ec2.amazonaws.com" } # Fixed principal string
     }] 
   }) 
 }
@@ -106,7 +105,6 @@ resource "aws_eks_node_group" "eks_nodes" {
   node_group_name = "eks-node-group" 
   node_role_arn   = aws_iam_role.eks_node_role.arn 
   
-  # Workers can run globally across all default subnets
   subnet_ids      = data.aws_subnets.default_subnets.ids 
   instance_types  = ["c7i-flex.large"] 
   
