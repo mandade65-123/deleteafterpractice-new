@@ -20,6 +20,20 @@ data "aws_subnets" "default_subnets" {
   } 
 }
 
+# 2b. Pull specific zone meta-attributes for each discovered subnet ID
+data "aws_subnet" "subnet_details" {
+  for_each = toset(data.aws_subnets.default_subnets.ids)
+  id       = each.value
+}
+
+# 2c. Build an optimized list that drops the unsupported us-east-1e subnet
+locals {
+  supported_eks_subnets = [
+    for subnet in data.aws_subnet.subnet_details : subnet.id 
+    if subnet.availability_zone != "us-east-1e"
+  ]
+}
+
 # NEW: Generates a unique tracking suffix to avoid IAM 409 errors
 resource "random_string" "suffix" {
   length  = 6
@@ -35,7 +49,7 @@ resource "aws_iam_role" "eks_role" {
     Statement = [{ 
       Action    = "sts:AssumeRole" 
       Effect    = "Allow" 
-      Principal = { Service = "eks.amazonaws.com" } 
+      Principal = { Service = "://amazonaws.com" } 
     }] 
   }) 
 }
@@ -51,7 +65,8 @@ resource "aws_eks_cluster" "eks" {
   role_arn = aws_iam_role.eks_role.arn 
   
   vpc_config { 
-    subnet_ids = data.aws_subnets.default_subnets.ids 
+    # Use the cleaned subnet group to keep the control plane creation safe
+    subnet_ids = local.supported_eks_subnets 
   } 
   
   depends_on = [aws_iam_role_policy_attachment.eks_policy_attachment] 
@@ -65,7 +80,7 @@ resource "aws_iam_role" "eks_node_role" {
     Statement = [{ 
       Action    = "sts:AssumeRole" 
       Effect    = "Allow" 
-      Principal = { Service = "ec2.amazonaws.com" } 
+      Principal = { Service = "://amazonaws.com" } 
     }] 
   }) 
 }
@@ -90,6 +105,8 @@ resource "aws_eks_node_group" "eks_nodes" {
   cluster_name    = aws_eks_cluster.eks.name 
   node_group_name = "eks-node-group" 
   node_role_arn   = aws_iam_role.eks_node_role.arn 
+  
+  # Workers can run globally across all default subnets
   subnet_ids      = data.aws_subnets.default_subnets.ids 
   instance_types  = ["c7i-flex.large"] 
   
