@@ -10,6 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo "this is Build stage"'
+                git 'https://github.com/mandade65-123/studentapp-ui.git'
             }
         }
         stage('Test') {
