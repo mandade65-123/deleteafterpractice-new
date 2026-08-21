@@ -1,12 +1,12 @@
 variable "amiid" {
-    default =  "ami-0332d564d76dbd8d6"
+    default =  "ami-0ac7b260cf76d8865"
 }
 variable "insttype" {
     default = "t3.micro"
 }
 
 variable "sg" {
-    default = "sg-0eae0d103615165a6"
+    default = "sg-0c5cc164e4924663b"
 }
 
 
