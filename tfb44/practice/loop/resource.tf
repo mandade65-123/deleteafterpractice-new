@@ -14,7 +14,7 @@ resource "aws_instance"  "webserver" {
 
 
 
-resource "aws_instance"  "webserver-new" {
+resource "aws_instance"  "webservertwo" {
     for_each = toset(var.imageid)    #unidenticalloops
     ami = each.value
     instance_type = var.insttype
@@ -27,11 +27,11 @@ resource "aws_instance"  "webserver-new" {
 
 
 variable "imageid" {
-   default = ["ami-0332d564d76dbd8d6" , "ami-0b6d9d3d33ba97d99" , "ami-05b8af58f7410b671"]
+   default = ["ami-04fca11ec6cc2ddab " , "ami-0b6d9d3d33ba97d99" , "ami-02b3d83d84b07786d"]
 }
 
 output "ip" {
     value = [
       for amiid in var.imageid:  
-        aws_instance.webserver-new[amiid].public_ip]
+        aws_instance.webservertwo[amiid].public_ip]
 }
