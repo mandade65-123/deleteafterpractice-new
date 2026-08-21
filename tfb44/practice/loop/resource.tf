@@ -14,7 +14,7 @@ resource "aws_instance"  "webserver" {
 
 
 
-resource "aws_instance"  "webservertwo" {
+resource "aws_instance"  "webserver-new" {
     for_each = toset(var.imageid)    #unidenticalloops
     ami = each.value
     instance_type = var.insttype
@@ -33,5 +33,5 @@ variable "imageid" {
 output "ip" {
     value = [
       for amiid in var.imageid:  
-        aws_instance.webservertwo[amiid].public_ip]
+        aws_instance.webserver-new[amiid].public_ip]
 }
