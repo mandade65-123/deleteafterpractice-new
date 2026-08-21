@@ -21,3 +21,6 @@ variable "apiterm" {
 variable "ws_subnet" {
     
 }
+variable "instno" {
+    
+}
