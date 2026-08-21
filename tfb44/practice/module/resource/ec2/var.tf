@@ -1,21 +1,21 @@
 variable "amiid" {
-    default = "ami-0332d564d76dbd8d6"
+    default = 
 }
 
 variable "insttype" {
-    default = "t3.micro"
+    default = 
 }
 
 variable "sg" {
-    default = "sg-0eae0d103615165a6"
+    default = 
 }
 
 variable "kp" {
-    default = "key"
+    default = 
 }
 
 variable "apiterm" {
-    default = false
+    default = 
 }
 
 variable "ws_subnet" {
