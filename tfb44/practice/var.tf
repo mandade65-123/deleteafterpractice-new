@@ -18,5 +18,5 @@ variable "instno" {
     default = 1
 }
 variable "apiterm" {
-    default = true
+    default = false
 }
