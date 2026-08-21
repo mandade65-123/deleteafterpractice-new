@@ -67,7 +67,7 @@ resource "aws_lb_listener" "listener" {
 resource "aws_launch_template" "example" {
   name_prefix   = "simple-template-"
   image_id      = "ami-0332d564d76dbd8d6" # Amazon Linux 2 AMI (update as needed)
-  instance_type = "t3.micro"
+  instance_type = "c7i-flex.large"
 
   network_interfaces {
     associate_public_ip_address = true
