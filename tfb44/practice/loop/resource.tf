@@ -23,3 +23,8 @@ resource "aws_instance" "webserver" {
 variable "imageid"  {
    default = ["ami-0332d564d76dbd8d6" , "ami-0b6d9d3d33ba97d99" , "ami-05b8af58f7410b671"]
 }
+
+output "ip" {
+    value = aws_instance.webservertwo.public_ip
+      
+}
