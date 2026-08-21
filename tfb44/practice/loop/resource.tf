@@ -25,8 +25,7 @@ variable "imageid"  {
 }
 
 output "ip" {
-    value = [
-        for amiid in var.imageid
+    value = [ for amiid in var.imageid
              aws_instance.webservertwo[amiid].public_ip]
       
 }
