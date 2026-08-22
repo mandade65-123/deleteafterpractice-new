@@ -9,7 +9,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo "this is Build stage"'
+                sh '''mvn clean package
+                echo "this is build stage"'''
             }
         }
         stage('Test') {
