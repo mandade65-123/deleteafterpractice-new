@@ -4,7 +4,7 @@ pipeline {
     environment {
         CLUSTER_NAME = "my-eks-cluster"
         REGION = "ap-south-1"
-        NODE_TYPE = "t3.medium"
+        NODE_TYPE = "c7i-flex.large"
         NODES = "2"
         MAX_NODES = "3"
         AWS_CREDENTIALS_ID = "aws-creds" // Jenkins AWS credentials ID
