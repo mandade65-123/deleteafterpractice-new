@@ -65,3 +65,8 @@ pipeline {
         }
     }
 }
+stage('Delete EKS Cluster') {
+    steps {
+        sh 'eksctl delete cluster --name my-eks-cluster --region ap-south-1'
+    }
+}
