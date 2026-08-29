@@ -3,6 +3,9 @@
 unzip awscliv2.zip
 sudo ./aws/install
 
+#identity
+aws sts get-caller-identity
+
 #Connect to Your Jenkins Server
 ssh user@your-jenkins-server-ip
 
