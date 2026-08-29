@@ -35,3 +35,12 @@ kubectl version --client
 # Test permissions as the jenkins system user
 sudo -u jenkins eksctl version
 sudo -u jenkins kubectl version --client
+
+
+#for forget the jenkins password
+sudo systemctl stop jenkins
+#open /var/lib/jenkins/config.xml
+vim config.xml
+<useSecurity>false</useSecurity>
+sudo systemctl restart jenkins
+
