@@ -66,15 +66,4 @@ pipeline {
     }
 }
 
----
-pipeline {
-    agent any
-    stages {
-        stage('Terraform Destroy') {
-            steps {
-                sh 'terraform init'
-                sh 'terraform destroy -auto-approve'
-            }
-        }
-    }
-}
+
