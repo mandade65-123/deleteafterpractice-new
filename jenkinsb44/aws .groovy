@@ -10,7 +10,7 @@ aws sts get-caller-identity
 #Connect to Your Jenkins Server
 ssh user@your-jenkins-server-ip
 
-
+#for eks cluster steps
  #Install eksctl
  # 1. Download and extract the latest Linux AMD64 binary into /tmp
 curl --silent --location "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
