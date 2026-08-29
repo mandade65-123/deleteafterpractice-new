@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 variable "cluster_name" {
-  default = "my-eks-cluster"
+  default = "my-eks"
 }
 
 module "vpc" {

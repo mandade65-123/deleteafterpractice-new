@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        CLUSTER_NAME = "my-eks-cluster"
+        CLUSTER_NAME = "my-eks"
         REGION = "ap-south-1"
         NODE_TYPE = "c7i-flex.large"
         NODES = "2"
