@@ -10,8 +10,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''mvn clean package
-                mv /home/ubuntu/workspace/webserver/target/studentapp-2.2-SNAPSHOT.war   /home/ubuntu/workspace/webserver/target/student.war
-                aws s3 cp  /home/ubuntu/workspace/webserver/target/student.war s3://webapp-cbz
                 echo "this is build stage"''' 
             }
         }
@@ -19,14 +17,14 @@ pipeline {
             steps {
            sh '''mvn clean verify sonar:sonar \\
                   -Dsonar.projectKey=studentapp \\
-                  -Dsonar.host.url=http://13.235.134.184:9000 \\
-                  -Dsonar.login=sqp_59740791e68737b50e24a9e0e7fe3c110c567775
-                echo "we are in test stage"'''
+                  -Dsonar.host.url=http://3.89.184.84:9000 \\
+                  -Dsonar.login=sqp_b4e218337a5bceae2d2bd12a0f8945b302c1b915
+                    echo "we are in test stage"'''
             }
         }
         stage('Deploy') {
             steps {
-            sh 'echo "this is Deploy stage"'
+                sh 'echo "this is Deploy stage"'
             }
         }
     }
