@@ -6,7 +6,7 @@ variable "insttype" {
 }
 
 variable "sg" {
-    default = "sg-0bfd84aa822c5da68"
+    default = "sg-05e7e2c67090bfab2"
 }
 
 
