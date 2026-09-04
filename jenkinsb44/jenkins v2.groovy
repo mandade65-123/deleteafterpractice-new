@@ -15,11 +15,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-           sh '''mvn clean verify sonar:sonar \\
-                  -Dsonar.projectKey=studentapp \\
-                  -Dsonar.host.url=http://3.89.184.84:9000 \\
-                  -Dsonar.login=sqp_b4e218337a5bceae2d2bd12a0f8945b302c1b915
-                    echo "we are in test stage"'''
+          sh '''mvn clean verify sonar:sonar \\
+                -Dsonar.projectKey=studentapp \\
+                -Dsonar.host.url=http://65.1.3.118:9000 \\
+                -Dsonar.login=sqp_d9903291b1b2b44f5b32bd642ab6d971e3e9fcad
+                echo "we are in test stage"'''
             }
         }
         stage('Deploy') {
