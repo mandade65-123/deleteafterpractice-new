@@ -66,7 +66,7 @@ resource "aws_lb_listener" "listener" {
 # Launch Template
 resource "aws_launch_template" "example" {
   name_prefix   = "simple-template-"
-  image_id      = "ami-035827357e3c7e810" # Amazon Linux 2 AMI (update as needed)
+  image_id      = "ami-090d68841c2a28756" # Amazon Linux 2 AMI (update as needed)
   instance_type = "t3.micro"
 
   network_interfaces {
