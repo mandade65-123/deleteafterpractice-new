@@ -48,7 +48,7 @@ resource "aws_security_group" "webserver_sg" {
 }
 
 data "aws_security_group" "sgdata" {
-    name = "mysecurity"
+    name = "default"
 }
 
 output "instaneip" {
