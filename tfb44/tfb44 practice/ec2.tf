@@ -6,7 +6,7 @@ provider "aws" {
 resource "aws_instance" "webserver" {
     ami = var.amiid
     instance_type = var.insttype
-    vpc_security_group_ids = [var.sg,aws_security_group.webserver_sg.id]
+    vpc_security_group_ids = [var.sg,aws_security_group.webserver_sg.id, data.aws_security_group.sgdata.id]
     key_name = var.kp
     tags = {
         purpose = "webserver"
@@ -47,3 +47,14 @@ resource "aws_security_group" "webserver_sg" {
      }
 }
 
+data "aws_security_group" "sgdata" {
+    name = "mysecurity"
+}
+
+output "instaneip" {
+  value = aws_instance.webserver[0].public_ip
+}
+
+output "pubdns" {
+  value = aws_instance.webserver[0].public_dns
+}
