@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "ap-south-1"
+  region = "us-east-1"
   profile = "configs"
 }
 
@@ -46,7 +46,7 @@ resource "aws_security_group" "webserver_sg" {
 }
 
 data "aws_security_group" "sgdata" {
-    name = "eks-cluster-sg-my-eks-1061202708"
+    name = "default"
 }
 
 
