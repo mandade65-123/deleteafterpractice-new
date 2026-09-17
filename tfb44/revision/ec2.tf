@@ -46,7 +46,7 @@ resource "aws_security_group" "webserver_sg" {
 }
 
 data "aws_security_group" "sgdata" {
-    name = "launch-wizard-1"
+    name = "default"
 }
 
 
