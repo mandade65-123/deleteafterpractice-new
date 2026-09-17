@@ -1,5 +1,5 @@
 variable "amiid" {
-    default =  "ami-098f18a6382fb4b2d"
+    default =  "ami-0e34b50e714a297f1"
 }
 variable "insttype" {
     default = "t3.micro"
@@ -11,7 +11,7 @@ variable "sg" {
 
 
 variable "kp" {
-    default = "key"
+    default = "newkey"
 }
 
 variable "instno" {
