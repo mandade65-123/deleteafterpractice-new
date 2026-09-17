@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_instance"  "webserver" {
      ami = var.amiid
      instance_type = var.insttype
-     vpc_security_group_ids = [var.sg ,aws_security_group.webserver_sg.id]
+     vpc_security_group_ids = [var.sg ,aws_security_group.webserver_sg.id,aws_security_group.sgdata.id]
      key_name = var.kp
      count = var.instno
      disable_api_termination = var.apiterm
@@ -43,4 +43,17 @@ resource "aws_security_group" "webserver_sg" {
       cidr_blocks  = ["0.0.0.0/0"]
 
      }
+}
+
+data "aws_security_group" "sgdata" {
+    name = "launch-wizard-1"
+}
+
+
+output "instaneip" {
+  value = aws_instance.webserver[0].public_ip
+}
+
+output "pubdns" {
+  value = aws_instance.webserver[0].public_dns
 }
