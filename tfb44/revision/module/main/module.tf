@@ -4,7 +4,7 @@ module "ec2" {
     source = "/root/deleteafterpractice-new/tfb44/revision/module/resource/ec2"
     amiid = "ami-0e34b50e714a297f1"
     insttype = "t3.micro"
-    sg = "sg-00af24a514ce5e504"
+    sg = "sg-0b9876b2ea3fab7aa"
     kp = "newkey"
     instno = 1
     apiterm = false
