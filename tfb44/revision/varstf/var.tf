@@ -1,5 +1,5 @@
 variable "amiid" {
-    default = "ami-01e28c444f355e81e"
+    default = "ami-0faf2b6e64f313b65"
 }
 
 variable "insttype" {
