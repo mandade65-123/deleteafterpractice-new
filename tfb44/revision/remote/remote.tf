@@ -8,7 +8,7 @@ terraform {
     backend "s3" {
         bucket = "cbzb44new"
         key = "terraform.tfstate"
-        dynamodb_table = "cbb44"
+        dynamodb_table = "cbzb44"
         region = "us-east-1"
         profile = "configs"
         shared_credentials_files = ["/home/nayan123/.aws/credentials"]
