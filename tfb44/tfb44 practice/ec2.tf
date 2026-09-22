@@ -1,28 +1,29 @@
 provider "aws" {
   region = "ap-south-1"
-  access_key = "my-access-key"
-  secret_key = "my-secret-key"
+  profile = "configs"
 }
 
 
 resource "aws_instance"  "webserver" {
-     ami = "ami-066c4849e6b3a1e3d"
-     instance_type = "t3.micro" 
-     vpc_security_group_ids = ["sg-09352767190d70e24",aws_security_group.webserver_sg.id]
-     key_name = "key"
+     ami = var.amiid
+     instance_type = var.insttype
+     vpc_security_group_ids = ["sg",aws_security_group.webserver_sg.id]
+     key_name = var.kp
      tags ={
         purpose = "webserver"
      }
      count= 1
-      user_data = <<-EOF
+     disable_api_termination = var.apiterm
+     user_data = <<-EOF
                  #!/bin/bash
                  sudo yum install nginx -y
                  sudo systemctl start nginx
-                EOF
+                 
+                 EOF
 
 }
 resource "aws_security_group" "webserver_sg" {
-    name = "tf-sg-new"
+    name = "tf-sg-two"
     ingress {
       from_port = 80
       to_port = 80
