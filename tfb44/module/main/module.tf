@@ -2,9 +2,9 @@
 
 module "ec2" {
     source = "/root/deleteafterpractice-new/tfb44/module/resource/ec2"
-    amiid =  "ami-090d68841c2a28756"
+    amiid =  "ami-066c4849e6b3a1e3d"
     insttype = "t3.micro"
-    sg = "sg-0b2d72b32c63f6b64"
+    sg = "sg-068b3ec527f853220"
     kp = "key"
     apiterm = false
    ws_subnet = module.vpc.subnet_id
