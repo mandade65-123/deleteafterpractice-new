@@ -8,10 +8,35 @@ provider "aws" {
 resource "aws_instance"  "webserver" {
      ami = "ami-066c4849e6b3a1e3d"
      instance_type = "t3.micro" 
-     vpc_security_group_ids = ["sg-09352767190d70e24"]
+     vpc_security_group_ids = ["sg-09352767190d70e24",aws_security_group.webserver_sg.id]
      key_name = "key"
      tags ={
         purpose = "webserver"
      }
      count= 1
+}
+resource "aws_security_group" "webserver_sg" {
+    name = "tf-sg-new"
+    ingress {
+      from_port = 80
+      to_port = 80
+      protocol = "TCP"
+      cidr_blocks  = ["0.0.0.0/0"]
+    }
+
+    ingress {
+      from_port = 0
+      to_port = 0
+      protocol = "-1"
+      cidr_blocks  = ["0.0.0.0/0"]
+    }
+
+
+    egress {
+      from_port = 0
+      to_port = 0
+      protocol = "-1"
+      cidr_blocks  = ["0.0.0.0/0"]
+
+     }
 }
