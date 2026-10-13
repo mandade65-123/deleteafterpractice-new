@@ -2,7 +2,7 @@
 scenario based questions on linux and aws 
 
 
-Linux 
+#Linux 
 
 
 
@@ -251,7 +251,7 @@ how to block content in a region via cloudfront ?
 
 -------------------------------------------------------------------------------
 
-Devops 
+#Devops 
 Git and remote repo 
 
 git lifecycle commands ?
@@ -269,7 +269,7 @@ github actions ?
 gitlab ci/cd pipeline?
 
 ----------------
-docker 
+#docker 
 
 ecr vs dockerhub ?
 previous org used which registry to save image version ? 
@@ -286,7 +286,7 @@ docker run inst ?
 alpine as a base image in docker ? 
 
 -------------------
-k8s 
+#k8s 
 
 brief me complete k8s architecture ? 
 what were objects used in k8s for deploying ur app in previous org ?
@@ -307,7 +307,7 @@ rbac , is their a way to setup polcies ?
 networking blokcing on k8s level ? 
 
 -----------------
-tf 
+#tf 
 
 tf blocks that were used ?
 tf module usecase ? 
@@ -327,7 +327,7 @@ loops in tf ?
 write me tf to create a s3 bucket or ec2 instance ?
 
 -----------------------------
-jenkins ? 
+#jenkins ? 
 
 explain jenkins architecture previous orgs /
 what were the plugins used in jenkins ?
